@@ -14,20 +14,19 @@ const Card = (props) => {
     let setLikedShows = props.setLikedShows;
 
     function clickHandler() {
-        //logic
+     
         if (likedShows.includes(shows.id)) {
-            //pehle se like hua pada tha
+          
             setLikedShows((prev) => prev.filter((cid) => (cid !== shows.id)));
             toast.warning("like removed");
         }
         else {
-            //pehle se like nahi hai ye shows
-            //insert karna h ye course liked shows me 
+           
             if (likedShows.length === 0) {
                 setLikedShows([shows.id]);
             }
             else {
-                //non-empty pehle se
+               
                 setLikedShows((prev) => [...prev, shows.id]);
             }
             toast.success("Liked Successfully");

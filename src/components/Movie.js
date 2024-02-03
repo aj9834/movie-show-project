@@ -2,7 +2,7 @@ import React from 'react'
 import { useSearchParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import image from './image .jpg';
-import { FcLike, FcLikePlaceholder } from "react-icons/fc"
+
 
 
 const Movie = ({ shows }) => {
@@ -19,7 +19,7 @@ const Movie = ({ shows }) => {
 console.log(data && data?.show?.id)
 const htmldata = data && data?.show?.summary;
     return (
-     <div className="bg-bgDark2  min-h-[100vh] w-[100vw]">
+     <div className="bg-bgDark2  min-h-[100vh] w-[100vw] sm:flex-col sm:flex-wrap  ">
       <div>
       <nav className="bg-bgDark py-4">
         <h1 className="text-3xl font-bold text-center text-white">Shows</h1>
@@ -29,12 +29,15 @@ const htmldata = data && data?.show?.summary;
           <div className='flex flex-row w-[auto] bg-bgDark bg-opacity-80 rounded-md overflow-hidden m-2 p-2'>
      
             {/* { data && data?.show?.id } */}
-           <div className='flex flex-col text-2xl text-slate-200 font-bold m-1 '>
+           
+
+            <div className='flex flex-col text-2xl text-slate-200 font-bold m-1 '>
                 { data && data?.show?.name}
 
 
             </div>
-            <img className='border border-cyan-800 rounded-xl m-2 p-2' src={data?.show?.image != null?data?.show?.image?.medium:image} alt='images'/>
+           
+            <img className='border border-cyan-800 rounded-xl m-2 p-2 ' src={data?.show?.image != null?data?.show?.image?.medium:image} alt='images'/>
             
             
              {/* <div dangerouslySetInnerHTML={{ __html:  { data?.show?.summary} }}> </div> */}
@@ -43,11 +46,14 @@ const htmldata = data && data?.show?.summary;
              <p className='text-2xl text-slate-100'>Description</p>
              <div className='text-xl text-slate-400 ' dangerouslySetInnerHTML={{ __html: htmldata }} />
              </div>
+
+            </div>
+          
              
            
 
 
-        </div>
+        
      </div>
         
     )
